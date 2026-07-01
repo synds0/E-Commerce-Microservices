@@ -1,3 +1,20 @@
 spring:
   application:
-    name: User
+    name: User-Service
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:test
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+
+
+server:
+  port: 8082
