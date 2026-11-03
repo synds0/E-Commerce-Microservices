@@ -1,17 +1,34 @@
 spring:
   application:
     name: Order
-  h2:
-    console:
-      enabled: true
 
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:postgresql://localhost:5432/order
+    username: sayan
+    password: root
 
   jpa:
+    database: postgresql
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+
+
+
+#  h2:
+#    console:
+#      enabled: true
+#
+#  datasource:
+#    url: jdbc:h2:mem:test
+#
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
 
 server:
   port: 8083

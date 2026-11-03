@@ -1,0 +1,41 @@
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres:14            # pulls postgres version 14 from Docker Hub
+    environment:
+      POSTGRES_USER: sayan
+      POSTGRES_PASSWORD: root
+#      POSTGRES_DB: ecomdb
+      PGDATA: /data/postgres       # where postgres stores data inside container
+
+    volumes:
+      - postgres:/data/postgres     # location where data save after container delete
+    ports:
+      - "5432:5432"         # exposes DB to my(host) machine
+    networks:
+      - postgres          # both containers on same network
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}     # If environment variable PGADMIN_DEFAULT_EMAIL is set on my machine → use that ||   If not set → use the default value after :-
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'           # only single user can login
+
+    volumes:
+      - pgadmin:/var/lib/pgadmin    # location where data save after container delete
+    ports:
+      - "5050:80"         # access PGAdmin at localhost:5050 in browser
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:               # Any container on this same network can talk to each other by container name.
+  postgres:
+    driver: bridge
+
+volumes:      # storage the data when containers deleted
+  postgres:
+  pgadmin:
