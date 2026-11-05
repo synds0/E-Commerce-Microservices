@@ -1,7 +1,7 @@
 spring:
   mongodb:
 #    uri: mongodb+srv://sayan12india_db_user:VV8eHh1GclZpiQxC@user-data.qmyisty.mongodb.net/
-    uri: mongodb://localhost:27017/userdb
+    uri: ${MONGO_URI}
     database: userdb
 
 
