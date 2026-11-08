@@ -1,8 +1,22 @@
 spring:
   mongodb:
-#    uri: mongodb+srv://sayan12india_db_user:VV8eHh1GclZpiQxC@user-data.qmyisty.mongodb.net/
+#    uri: mongodb+srv://XXX_db_user:VV8eHh1GclZpiQxC@user-data.qmyisty.mongodb.net/
     uri: ${MONGO_URI}
     database: userdb
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 
 #  datasource:
@@ -17,17 +31,6 @@ spring:
 #      ddl-auto: update
 #    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-#  h2:
-#    console:
-#      enabled: true
-#
-#  datasource:
-#    url: jdbc:h2:mem:test
-#
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: create
 
 
 server:
