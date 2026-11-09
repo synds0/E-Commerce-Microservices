@@ -14,20 +14,20 @@ import java.util.Optional;
 @Configuration
 public class ProductServiceClientConfig {
 
-    @Bean
-    @Primary // 🔄 Eureka and everything else gets the plain builder
-    public RestClient.Builder plainRestClientBuilder() {
-        return RestClient.builder();
-    }
+//    @Bean
+//    @Primary // 🔄 Eureka and everything else gets the plain builder
+//    public RestClient.Builder plainRestClientBuilder() {
+//        return RestClient.builder();
+//    }
+//
+//    @Bean
+//    @LoadBalanced // ✅ only used where you explicitly ask for it
+//    public RestClient.Builder loadBalancedRestClientBuilder() {
+//        return RestClient.builder();
+//    }
 
     @Bean
-    @LoadBalanced // ✅ only used where you explicitly ask for it
-    public RestClient.Builder loadBalancedRestClientBuilder() {
-        return RestClient.builder();
-    }
-
-    @Bean
-    public ProductServiceClient restClientInterface(@LoadBalanced RestClient.Builder restClientBuilder){
+    public ProductServiceClient productRestClientInterface(@LoadBalanced RestClient.Builder restClientBuilder){
         RestClient restClient = restClientBuilder
                 .baseUrl("http://product-service")
                 .defaultStatusHandler(HttpStatusCode::is4xxClientError,

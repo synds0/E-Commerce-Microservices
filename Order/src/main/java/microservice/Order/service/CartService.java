@@ -1,8 +1,10 @@
 package microservice.Order.service;
 
 import microservice.Order.clients.ProductServiceClient;
+import microservice.Order.clients.UserServiceClient;
 import microservice.Order.dto.CartItemRequest;
 import microservice.Order.dto.ProductResponse;
+import microservice.Order.dto.UserResponse;
 import microservice.Order.model.CartItem;
 import microservice.Order.repository.CartItemRepository;
 import jakarta.transaction.Transactional;
@@ -20,7 +22,7 @@ public class CartService {
 
     private final CartItemRepository cartItemRepository;
     private final ProductServiceClient productServiceClient;
-
+    private final UserServiceClient userServiceClient;
 
     public boolean addToCart(String userId, CartItemRequest request) {
 
@@ -35,6 +37,11 @@ public class CartService {
             return false;
         }
 
+
+        UserResponse userResponse = userServiceClient.getUserDetails(userId);
+        if (userResponse == null){
+            return false;
+        }
 //        Optional<User> userOpt = userRepository.findById(Long.valueOf(userId));
 //        if (userOpt.isEmpty()){
 //            return false;
