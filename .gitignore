@@ -1,39 +1,145 @@
+### ===== Maven / Build output =====
 HELP.md
 target/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+!.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
 
-### STS ###
+### ===== 🔧 Logs (SLF4J / Logback / Log4j2) =====
+logs/
+log/
+*.log
+*.log.*
+*.log.gz
+*.log.zip
+*.gz
+spring.log
+hs_err_pid*
+replay_pid*
+*.hprof
+
+### ===== 🔧 Monitoring / Observability data (Grafana, Loki, Prometheus, Tempo, Zipkin) =====
+grafana-data/
+grafana/data/
+grafana/grafana.db
+loki-data/
+loki/data/
+prometheus-data/
+prometheus/data/
+tempo-data/
+zipkin-data/
+data/
+volumes/
+.docker-data/
+
+### ===== 🔧 Secrets and environment (never push these) =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.crt
+*.cer
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+secrets/
+secret/
+credentials.json
+service-account*.json
+application-local.properties
+application-local.yml
+application-local.yaml
+application-secret*.properties
+application-secret*.yml
+application-secret*.yaml
+application-dev-local*.*
+*-local.properties
+*-local.yml
+*-local.yaml
+bootstrap-local.*
+vault-token
+.vault-token
+.aws/
+.ssh/
+.netrc
+
+### ===== 🔧 Local databases and dumps =====
+*.db
+*.sqlite
+*.sqlite3
+*.mv.db
+*.trace.db
+*.h2.db
+*.sql.bak
+*.dump
+*.bak
+*.backup
+
+### ===== 🔧 Temp / Uploads / Misc =====
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+uploads/
+
+### ===== IntelliJ IDEA =====
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### ===== STS / Eclipse =====
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+### ===== NetBeans =====
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+### ===== VS Code =====
 .vscode/
 
-
-### Environment Variables ###
-.env
-.env.*
-!.env.example
+### ===== 🔧 OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/

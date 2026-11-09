@@ -44,3 +44,15 @@ eureka:
 
     register-with-eureka: true
     fetch-registry: true
+
+
+logging:
+#  level:
+#    root: INFO
+#    microservice.User.controllers: TRACE
+
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
