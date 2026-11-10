@@ -146,8 +146,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    volumes:
-      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+#    volumes:
+#      - ./grafana/datasources:/etc/grafana/provisioning/datasources
     networks:
       - loki
 
@@ -243,5 +243,13 @@ services:
   flog:
     image: mingrammer/flog
     command: -f json -d 200ms -l
+    networks:
+      - loki
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
     networks:
       - loki
