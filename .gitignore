@@ -47,10 +47,10 @@ volumes/
 .docker-data/
 
 ### 🔧 Docker/MinIO local data
-.data/                  # 🔧 matches the dot-folder you have
-**/.data/               # 🔧 at any depth
-.minio.sys/             # 🔧 MinIO internal files
-minio/                  # 🔧 MinIO storage folder
+.data/
+**/.data/
+.minio.sys/
+minio/
 
 
 ### ===== 🔧 Secrets and environment (never push these) =====
